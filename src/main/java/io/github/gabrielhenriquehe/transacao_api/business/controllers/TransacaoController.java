@@ -1,5 +1,6 @@
-package io.github.gabrielhenriquehe.transacao_api.business.controllers.dto;
+package io.github.gabrielhenriquehe.transacao_api.business.controllers;
 
+import io.github.gabrielhenriquehe.transacao_api.business.controllers.dto.TransacaoRequestDTO;
 import io.github.gabrielhenriquehe.transacao_api.business.services.TransacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
