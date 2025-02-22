@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,5 +38,18 @@ public class TransacaoService {
         log.info("Iniciando procedimento para exclusão das transações.");
         this.transacoes.clear();
         log.info("Procedimento de exclusão de transações finalizado.");
+    }
+
+    public List<Transacao> obterTransacoes(Long intervalo) {
+        log.info("Obtendo transações.");
+        List<Transacao> transacoesFiltradas = this.transacoes
+                .stream()
+                .filter(transacao -> transacao.dataHora()
+                        .isAfter(OffsetDateTime.now()
+                                .withOffsetSameLocal(ZoneOffset.of("-03:00"))
+                                .minusSeconds(intervalo))).toList();
+        log.info("Transações obtidas com sucesso.");
+
+        return transacoesFiltradas;
     }
 }
