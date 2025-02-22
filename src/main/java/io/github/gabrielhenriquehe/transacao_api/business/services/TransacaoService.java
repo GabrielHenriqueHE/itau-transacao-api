@@ -32,4 +32,10 @@ public class TransacaoService {
         this.transacoes.add(transacao);
         log.info("Processamento da transação finalizado.");
     }
+
+    public void limparTransacoes() {
+        log.info("Iniciando procedimento para exclusão das transações.");
+        this.transacoes.clear();
+        log.info("Procedimento de exclusão de transações finalizado.");
+    }
 }
