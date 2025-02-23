@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,8 +46,7 @@ public class TransacaoService {
         List<Transacao> transacoesFiltradas = this.transacoes
                 .stream()
                 .filter(transacao -> transacao.dataHora()
-                        .isAfter(OffsetDateTime.now()
-                                .withOffsetSameLocal(ZoneOffset.of("-03:00"))
+                        .isAfter(OffsetDateTime.now(ZoneId.of("America/Sao_Paulo"))
                                 .minusSeconds(intervalo))).toList();
         log.info("Transações obtidas com sucesso.");
 
