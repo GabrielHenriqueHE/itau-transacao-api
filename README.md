@@ -64,4 +64,4 @@ Este endpoint deve retornar todas as estatísticas das transações que acontece
 Respostas possíveis:
 - `200 OK` sem corpo
     - Um JSON com os campos `count`, `sum`, `avg`, `min` e `max` todos preenchidos com seus respectivos valores.
-    - Quando não houverem transações nos últimos 60 segundos, os valores são considerados como 0.
+    - Quando não houverem transações no intervalo especificado, os valores são considerados como 0.
